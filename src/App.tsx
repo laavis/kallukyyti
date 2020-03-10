@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
+
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const TEST_QUERY = gql`
+  {
+    stop(id: "HSL:1173434") {
+      name
+      lat
+      lon
+    }
+  }
+`;
+
+export const App = () => {
+  const { loading, error, data } = useQuery(TEST_QUERY);
+
+  if (loading) console.log('loading');
+  if (error) console.log(error);
+
+  console.log(data);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +41,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
