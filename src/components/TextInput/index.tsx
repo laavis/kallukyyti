@@ -22,11 +22,11 @@ const Input = styled.input`
   padding: 0.5rem 1rem;
   margin-top: 0.5rem;
   border: none;
+  border-radius: 2px;
   background: #222222;
   color: white;
   font-size: 1rem;
-  font-family: 'Inter', sans-serif;
-  transition: all 180ms ease-in-out;
+  transition: box-shadow 180ms ease-in-out;
   &:focus {
     outline: none !important;
     box-shadow: 0 0 0 1px ${colors.journey};

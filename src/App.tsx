@@ -1,12 +1,25 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 import { Header } from './components/Header';
 import { Journey } from './components/Journey';
+import { Favorites } from './components/Favorites';
 
 import { colors } from './helpers/colors';
+import { Recent } from './components/Recent';
+
+const GlobalStyle = createGlobalStyle`
+  body, h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+  }
+
+  p, span, input {
+    font-family: 'Inter', sans-serif;
+  }
+`;
 
 const Wrapper = styled.div`
   background: ${colors.background};
@@ -37,9 +50,12 @@ export const App = () => {
 
   return (
     <Wrapper className="App">
+      <GlobalStyle />
       <Header />
       <Main>
         <Journey />
+        <Favorites />
+        <Recent />
       </Main>
     </Wrapper>
   );
